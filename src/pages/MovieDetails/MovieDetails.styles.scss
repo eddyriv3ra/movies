@@ -1,0 +1,56 @@
+@import "../../styles/abstracts/variables";
+
+.details {
+  &.theme-1 {
+    --font-primary: "Anton", sans-serif;
+    --color-primary: rgb(187, 231, 137);
+  }
+
+  &.theme-2 {
+    --font-primary: "Redressed", sans-serif;
+    --color-primary: rgb(163, 163, 163);
+  }
+
+  &.theme-3 {
+    --font-primary: "Shizuru", sans-serif;
+    --color-primary: rgb(70, 137, 175);
+  }
+
+  &__wrapper {
+    display: flex;
+    height: 50vh;
+    margin-top: 15rem;
+
+    &__image {
+      width: 50%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    &__container {
+      width: 50%;
+      font-family: var(--font-primary);
+
+      .title {
+        color: var(--color-primary);
+        font-size: 3rem;
+      }
+
+      .content {
+        color: $tertiary-color;
+        font-size: 1.5rem;
+
+        button {
+          margin-top: 2rem;
+          padding: 1rem;
+          font-family: var(--font-primary);
+          width: 15rem;
+        }
+      }
+
+      .title-description {
+        color: $secondary-color;
+      }
+    }
+  }
+}

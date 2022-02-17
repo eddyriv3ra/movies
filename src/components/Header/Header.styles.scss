@@ -1,0 +1,27 @@
+@import "styles/abstracts/variables";
+
+.header {
+  display: flex;
+  background-color: $header-color;
+  height: 6rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0 5rem;
+  align-items: center;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__title {
+    color: $primary-color;
+    font-size: 4rem;
+  }
+}

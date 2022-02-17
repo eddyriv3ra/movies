@@ -1,0 +1,44 @@
+@import "styles/abstracts/variables";
+
+.list {
+  width: 100%;
+  margin-top: 1rem;
+
+  &__title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 500;
+    margin-left: 5rem;
+  }
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+
+    &__container {
+      margin-top: 1rem;
+      display: flex;
+      gap: 1rem;
+      transform: translateX(0);
+      transition: all 1s;
+    }
+
+    .sliderArrow {
+      position: absolute;
+      width: 5rem;
+      height: 100%;
+      color: white;
+      background-color: rgba($main-color, 0.5);
+      cursor: pointer;
+      z-index: 100;
+
+      &.left {
+        left: 0;
+      }
+
+      &.right {
+        right: 0;
+      }
+    }
+  }
+}
