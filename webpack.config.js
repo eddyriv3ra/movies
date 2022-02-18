@@ -59,7 +59,9 @@ module.exports = (env, argv) => {
       rules,
     },
     plugins: [
-      new HtmlWebpackPlugin({ template: "src/index.html" }),
+      new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, "public/index.html"),
+      }),
       new webpack.DefinePlugin({
         "process.env": JSON.stringify(process.env),
       }),
