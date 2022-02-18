@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "webpack --mode=production",
     "dev": "webpack serve --mode=development",
-    "start": "node ./src/index.js",
+    "start": "webpack-dev-server --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
