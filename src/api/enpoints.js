@@ -2,7 +2,9 @@ const API_KEY = process.env.API_KEY;
 const url = "https://api.themoviedb.org/3/";
 
 const fetchData = (url) => {
-  return fetch(url).then((response) => response.json());
+  return fetch(url).then((response) =>
+    response.json().catch((error) => console.log(error))
+  );
 };
 
 export const fetchMovies = async () => {

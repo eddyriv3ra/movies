@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const dotenv = require("dotenv");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 
 dotenv.config();
@@ -31,6 +32,10 @@ const rules = [
       "sass-loader",
     ],
   },
+  {
+    test: /\.css$/i,
+    use: [MiniCssExtractPlugin.loader, "css-loader"],
+  },
 ];
 
 module.exports = (env, argv) => {
@@ -59,8 +64,14 @@ module.exports = (env, argv) => {
       rules,
     },
     plugins: [
+      new MiniCssExtractPlugin(),
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, "public/index.html"),
+        template: path.resolve(__dirname, "src/index.html"),
+        minify: {
+          removeComments: true,
+          collapseWhitespace: true,
+          removeAttributeQuotes: true,
+        },
       }),
       new webpack.DefinePlugin({
         "process.env": JSON.stringify(process.env),
