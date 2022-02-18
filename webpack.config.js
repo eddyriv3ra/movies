@@ -36,6 +36,14 @@ const rules = [
     test: /\.css$/i,
     use: [MiniCssExtractPlugin.loader, "css-loader"],
   },
+  {
+    test: /\.html$/,
+    use: [
+      {
+        loader: "html-loader",
+      },
+    ],
+  },
 ];
 
 module.exports = (env, argv) => {
@@ -67,6 +75,7 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin(),
       new HtmlWebpackPlugin({
         template: path.resolve(__dirname, "src/index.html"),
+        filename: "./index.html",
         minify: {
           removeComments: true,
           collapseWhitespace: true,
