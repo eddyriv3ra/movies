@@ -47,16 +47,17 @@ const rules = [
 ];
 
 module.exports = (env, argv) => {
-  const { mode } = argv;
-  const isProduction = mode === "production";
   return {
     entry: "./src/index.js",
     output: {
-      filename: isProduction ? "[name].[contenthash" : "main.js",
       path: path.resolve(__dirname, "build"),
       publicPath: "/",
+      filename: "bundle.js",
     },
     devServer: {
+      static: {
+        directory: path.resolve(__dirname, "build"),
+      },
       open: true,
       port: 4000,
       client: {
@@ -74,7 +75,7 @@ module.exports = (env, argv) => {
     plugins: [
       new MiniCssExtractPlugin(),
       new HtmlWebpackPlugin({
-        template: path.resolve(__dirname, "src/index.html"),
+        template: path.resolve("./src/index.html"),
         filename: "./index.html",
         minify: {
           removeComments: true,
